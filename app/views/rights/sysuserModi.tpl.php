@@ -25,7 +25,7 @@ $(document).ready(function()
 //				.inputValidator({min:1,empty:{leftempty:false,rightempty:false,emptyerror:"密码两边不能有空符号"},onerror:"密码不能为空,请确认"});
 	$("#realname").formValidator({onshow:"请输入真实姓名",onfocus:"用户名至少2-8个中文汉字",oncorrect:"该用户名可以注册"})
 				.inputValidator({min:4,max:16,onerror:"你输入的用户名非法,请确认"})
-				.regexValidator({regexp:"chinese",datatype:"enum",onerror:"格式不正确"});
+				// .regexValidator({regexp:"chinese",datatype:"enum",onerror:"格式不正确"});
 });
 </script>
 
@@ -81,7 +81,7 @@ $(document).ready(function()
         </div>
         <div class="button button-position"><input type="submit" id="submitBtn" name="submit" value="保存修改" /></div>
 		</form>
-        
+
     </div>
 </div>
 

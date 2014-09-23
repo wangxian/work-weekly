@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title></title>
+<link href="<?php echo SOURCE;?>/css/admin.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="<?php echo SOURCE;?>/js/jquery.min.js"></script>
+
+<!-- formValidator -->
+<link type="text/css" rel="stylesheet" href="<?php echo SOURCE;?>/formValidator/style/validatorAuto.css" />
+<script src="<?php echo SOURCE;?>/formValidator/formValidator.js" type="text/javascript" charset="UTF-8"></script>
+<script src="<?php echo SOURCE;?>/formValidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
+<script src="<?php echo SOURCE;?>/formValidator/DateTimeMask.js" language="javascript" type="text/javascript" ></script>
+<!--<script src="<?php echo SOURCE;?>/formValidator/datepicker/WdatePicker.js" defer="defer" type="text/javascript"></script>-->
+<!-- /formValidator -->
+
+<script>
+$(document).ready(function()
+{
+    $.formValidator.initConfig({autotip:true,onerror:function(msg){alert(msg)}});
+    $("#username").formValidator({onshow:"请输入用户名",onfocus:"用户名至少4个字符,最多10个字符,英文",oncorrect:"该用户名可以注册"})
+                .inputValidator({min:4,max:10,onerror:"你输入的用户名非法,请确认"});
+                // .regexValidator({regexp:"username",datatype:"enum",onerror:"用户名格式不正确"});
+    // $("#password").formValidator({onshow:"请输入密码",onfocus:"密码不能为空",oncorrect:"密码合法"})
+    //             .inputValidator({min:1,empty:{leftempty:false,rightempty:false,emptyerror:"密码两边不能有空符号"},onerror:"密码不能为空,请确认"});
+    $("#realname").formValidator({onshow:"请输入真实姓名",onfocus:"用户名至少2-8个中文汉字",oncorrect:"该用户名可以注册"})
+                .inputValidator({min:4,max:16,onerror:"你输入的用户名非法,请确认"})
+                // .regexValidator({regexp:"chinese",datatype:"enum",onerror:"格式不正确"});
+//    $("#cal").focus(function(){WdatePicker({skin:'whyGreen',oncleared:function(){$(this).blur();},onpicked:function(){$(this).blur()}});});
+
+});
+</script>
+
+</head>
+<body>
+<div class="main-wrap">
+    <?php if(getv("from") !== "top"):?>
+    <div class="path"><span class="path-icon"></span>当前位置：员工管理<span> &gt; </span>员工编辑</div>
+    <?php else:?>
+    <div class="path"><span class="path-icon"></span>当前位置：个人资料修改<span> </span></div>
+    <?php endif;?>
+
+    <div class="set-wrap">
+        <form action="" method="post" name="form1" id="form1" onsubmit="return $.formValidator.pageIsValid('1')">
+        <div class="wrap-inner">
+            <?php if(getv("from") !== "top"):?>
+            <h4 class="main-title">员工编辑</h4>
+            <?php else:?>
+            <h4 class="main-title">修改个人资料</h4>
+            <?php endif;?>
+
+
+            <div class="set-area-int">
+                <div class="site-info-a">
+                <label>
+                    <p>登录名：<span>(添加后登录名不能修改)</span></p>
+                    <input value="<?php echo $this->data["username"];?>" name="username" id="username" class="input-box site-box-w" disabled type="text" />
+                </label>
+                </div>
+                <div class="site-info-a">
+                <label>
+                    <p>密码：<span>(不修改，请留空)</span></p>
+                    <input name="password" id="password" class="input-box site-box-w" type="text" />
+                </label>
+                </div>
+
+                <div class="site-info-a">
+                <label>
+                    <p>真实姓名：<span>(必填)</span></p>
+                    <input value="<?php echo $this->data["realname"];?>" name="realname" type="text" id="realname"  class="input-box site-box-w" />
+                </label>
+                </div>
+                <div class="site-info-a">
+                    <p>性别：<span></span></p>
+                    <label><input name="sex" type="radio" value="1" <?php echo Html::checked($this->data["sex"], "1");?> /> 男</label>&nbsp;&nbsp;
+                    <label><input name="sex" type="radio" value="0" <?php echo Html::checked($this->data["sex"], "0");?> /> 女</label>
+                </div>
+                <div class="site-info-b">
+                <label>
+                    <p>电话：<span></span></p>
+                    <input value="<?php echo $this->data["telphone"];?>" name="telphone" id="telphone" class="input-box site-box-w" type="text" />
+                </label>
+                </div>
+            </div>
+        </div>
+        <div class="button button-position"><input type="submit" id="submitBtn" name="submit" value="确认更新" /></div>
+        </form>
+
+    </div>
+</div>
+
+</body>
+</html>

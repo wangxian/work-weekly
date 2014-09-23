@@ -20,18 +20,18 @@ return array
          'menu_group'=>
          array(
               '任务管理' => array(
-                'task/list'=> '我的任务',
-                'task/list_all'=> '项目任务',
-                'task/add' => '任务添加',
+                'task/list'     => '我的任务',
+                'task/list_all' => '项目任务',
+                'task/add'      => '添加任务',
               ),
          ),
          'actions'=>
           array(
-              'task/list' => '我的任务-列表',
+              'task/list'     => '我的任务-列表',
               'task/list_all' => '项目任务-列表',
-              'task/add'  => '任务-添加',
-              'task/edit' => '任务-编辑',
-              'task/del'  => '任务-删除',
+              'task/add'      => '任务-添加',
+              'task/edit'     => '任务-编辑',
+              'task/del'      => '任务-删除',
          ),
      ),
 
@@ -47,10 +47,8 @@ return array
          ),
          'actions'=>
           array(
-              'weekly/list'=>'周报-列表',
-              'weekly/add'=>'周报-添加',
-              'weekly/edit'=>'周报-编辑',
-              'weekly/del'=>'周报-删除',
+              'weekly/list'=>'我的周报',
+              'weekly/list_all'=>'项目周报'
          ),
      ),
 
@@ -59,9 +57,9 @@ return array
          'title'=>'员工管理',
          'menu_group'=>
          array(
-              '课程安排' => array(
-                'staff/list'=>'项目组员工',
-                'staff/add'=>'增加项目员工',
+              '员工管理' => array(
+                'staff/list'=>'员工列表',
+                'staff/add'=>'员工添加',
               ),
          ),
          'actions'=>
@@ -96,7 +94,7 @@ return array
               'rights/mgr'         =>'权限管理',
 
                'rights/sysuserAdd'  =>'管理员-添加',
-              'rights/sysuserMgr'  =>'管理员-列表',
+               'rights/sysuserMgr'  =>'管理员-列表',
                'rights/sysuserDel'  =>'管理员-删除',
                'rights/sysuserModi' =>'管理员-修改',
 

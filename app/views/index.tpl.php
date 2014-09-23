@@ -28,7 +28,7 @@ $(function(){
         ?>
         </div>
 		<div class="log-info">
-        	<span>欢迎回来：<?php echo Session::get('sysuser.realname');?></span>
+        	<span>欢迎回来：<a target="mainframe" href="/index.php/staff/edit/id/<?php echo Session::get("sysuser.user_id");?>.html?from=top"><?php echo Session::get('sysuser.realname');?></a></span>
             <em>|</em>
             <a href="<?php echo U('index/logout');?>">退出系统</a>
             <em>|</em>
