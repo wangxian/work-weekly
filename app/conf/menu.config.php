@@ -40,7 +40,7 @@ return array
          'title'=>'周报管理',
          'menu_group'=>
          array(
-              '课程安排' => array(
+              '周报管理' => array(
                 'weekly/list'=>'我的周报',
                 'weekly/list_all'=>'项目周报',
               ),
