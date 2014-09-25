@@ -9,6 +9,7 @@ class taskController extends rootController
             $data["created"] = date("Y-m-d H:i:s");
             unset($data['submit']);
             $data["week"] = date("YW");
+            // dumpdie($data);
 
             if(empty($data["staffs"])) show_error("必须把任务分配给一个员工！");
             $staffs = $data["staffs"];
@@ -25,7 +26,8 @@ class taskController extends rootController
             $staffs_ids = array_keys($staffs);
             foreach ($staffs_ids as $v)
             {
-                $this->model->table( "admin_user_task" )->set(array("user_id"=>$v, "task_id"=>$task_id))->insert();
+                $this->model->table( "admin_user_task" )->set(array("user_id"=>$v, "task_id"=>$task_id))
+                ->insert();
             }
             show_success('恭喜，操作成功！');
         }
@@ -34,7 +36,7 @@ class taskController extends rootController
         if(Session::get("sysuser.group_id") == '3')
         {
             // 个人只能把任务分配给自己
-            $this->view->owner = array("id"=>Session::get("sysuser.user_id"), "username" => Session::get("sysuser.username"));
+            $this->view->owner = array(array("id"=>Session::get("sysuser.user_id"), "username" => Session::get("sysuser.username")));
         }
         else
         {
@@ -119,7 +121,7 @@ class taskController extends rootController
         if(Session::get("sysuser.group_id") == '3')
         {
             // 个人只能把任务分配给自己
-            $this->view->owner = array("id"=>Session::get("sysuser.user_id"), "username" => Session::get("sysuser.username"));
+            $this->view->owner = array(array("id"=>Session::get("sysuser.user_id"), "username" => Session::get("sysuser.username")));
         }
         else
         {

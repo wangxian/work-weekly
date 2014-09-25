@@ -37,7 +37,7 @@
                     <p>分配给：<span>（任务分配给谁？）</span></p>
                     <?php $c = count($this->owner); foreach($this->owner as $v):?>
                     <label>
-                      <input type="checkbox" name="staffs[<?php echo $v["id"];?>]" value="<?php echo $v["username"];?>" <?php if($c==1) echo "disabled checked";?> />
+                      <input type="checkbox" name="staffs[<?php echo $v["id"];?>]" value="<?php echo $v["username"];?>" <?php if($c==1) echo "checked";?> />
                       <?php echo $v["username"];?>
                     </label>&nbsp;&nbsp;
                     <?php endforeach;?>
